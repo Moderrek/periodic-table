@@ -1,3 +1,4 @@
+// Got at https://github.com/Bowserinator/Periodic-Table-JSON/blob/master/PeriodicTableJSON.json
 const elements = [
     {
         "name": "Hydrogen",

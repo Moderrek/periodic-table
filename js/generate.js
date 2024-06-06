@@ -2,7 +2,6 @@
 function onClickCell(index) {
     const element = elements[index];
 
-    console.log(element);
     modal.classList.add("enabled");
     modalContent.innerHTML = "";
     modalContent.innerHTML += `<h1> ${element.symbol}<sup>${element.number}</sup> | ${element.name}</h1>`;
@@ -68,11 +67,16 @@ const modal = document.getElementById("modal");
 const modalContent = document.getElementById("modal-text");
 const close = document.getElementById("close");
 
-close.addEventListener("click", () => modal.classList.remove("enabled"));
-window.onclick = function(event) {
-    if (event.target == modal) modal.classList.remove("enabled");
+// Close modal when click outside
+function hideModal() {
+    modal.classList.remove("enabled");
 }
 
+close.addEventListener("click", () => hideModal());
+window.addEventListener("click", (event) => {
+    if (event.target != modal) return;
+    hideModal();
+});
 
 // Transforms collection of elements to 2D array with positioned elements.
 let elementsTable = [];

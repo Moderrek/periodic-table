@@ -85,6 +85,8 @@ td[data-index]:hover {
   float: right;
   font-size: 28px;
   font-weight: bold;
+  user-select: none;
+  cursor: pointer;
 }
 
 .close:hover,
